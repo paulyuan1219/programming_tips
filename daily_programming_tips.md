@@ -1,5 +1,85 @@
 # 日常编程技巧
 
+
+## Deep Learning
+
++ `nvidia-smi` to show gpu usage
++ `ps aux`
++ `kill -9 pid` to kill a process
++ 
+
+## Colab
+
+### Mount Google Drive
+
+```
+from google.colab import drive
+drive.mount('/content/gdrive')
+
+!ls /content/gdrive/My\ Drive/
+
+root_dir = "/content/gdrive/My\ Drive/"
+
+```
+
+## Jupyter Notebook
+
++ [不显示当前conda的环境](https://blog.csdn.net/sean2100/article/details/83744679)：进入任意anaconda环境 安装`nb_conda_kernels`工具 `conda install nb_conda_kernels`
+
+## itspxx
+
+### (价值399)TensorFlow框架案例实战-2019年七月在线
+压缩包解压密码:www.itspxx.com_
+XoLmsk#*HI9l   链接：https://pan.baidu.com/s/1v9kwqyNapxjB3pK4Na5bYA
+提取码：xwf6
+
+## 压缩文件
+
+### [How to compress and uncompress files and folders in the Terminal in macOS Sierra](https://coolestguidesontheplanet.com/how-to-compress-and-uncompress-files-and-folders-in-os-x-lion-10-7-using-terminal/)
+
++ `zip -r archive_name.zip folder_to_compress`
++ `unzip archive_name.zip`
++ `unzip /path/to/file.zip -d temp_for_zip_extract`
+
++ `tar -zcvf archive_name.tar.gz folder_to_compress`
++ `tar -zxvf archive_name.tar.gz`
+
++ `tar -jcvf archive_name.tar.bz2 folder_to_compress`
++ `tar -jxvf archive_name.tar.bz2`
+
+
+
+
+
+## Pandas
+
++ `data["Salary"]= data["Salary"].astype(int)` 
++ `data["Number"]= data["Number"].astype(str) `
++ `result = pd.concat([df1, df2, df3])` v-stack
+
+
+## 图片编号
+
++ `python renamefiles.v1.py ./image/12`
+
+## Online Books
+
++ [Composing Programs](http://composingprograms.com/)
++ [有哪些你看了以后大呼过瘾的编程书？](https://www.zhihu.com/question/50408698/answer/288244972)
++ [周志华的《机器学习》这本书怎么来学习？](https://www.zhihu.com/question/46228432/answer/1190434597)
++ [6个你应该用用看的用于文本分类的最新开源预训练模型](https://zhuanlan.zhihu.com/p/130792659)
++ [文本去重算法：Minhash/Simhash/Klongsent](https://zhuanlan.zhihu.com/p/43640234)
++ [大数据文本相似去重方案](https://blog.csdn.net/makang110/article/details/52330183)
++ [海量短文本场景下的去重算法](https://www.iyunying.org/seo/dataanalysis/152232.html)
++ [细说OSI七层协议模型及OSI参考模型中的数据封装过程](https://blog.csdn.net/qq_14935437/article/details/71081546?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)
++ [传统文本匹配算法详解（附代码）](https://zhuanlan.zhihu.com/p/138848302)
++ [深入理解推荐系统：排序](https://zhuanlan.zhihu.com/p/138235048)
++ [玩转Pytorch，搞懂这个教程就可以了，从GAN到词嵌入都有实例](https://zhuanlan.zhihu.com/p/138345804)
++ [Machine learning for email spam filtering: review, approaches and open research problems](https://www.sciencedirect.com/science/article/pii/S2405844018353404)
++ [git lfs](https://git-lfs.github.com/)
+
+
+
 ## ElasticSearch
 
 **`localhost:9200/media_43tc/_search?pretty&q=people`**
@@ -16,6 +96,18 @@
 
 [07、环境 虚拟机网络设置](https://www.youtube.com/watch?v=GrXzq8ZvcRc)
 
+[VirtualBox Network Settings: Complete Guide](https://www.nakivo.com/blog/virtualbox-network-setting-guide/)
+
+[如何在VMWare的NAT模式下使用traceroute(解析vmnat的行为)](https://blog.csdn.net/dog250/article/details/52234859?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-5)
+
+[为什么在VMWare的NAT模式下无法使用traceroute](https://blog.csdn.net/dog250/article/details/52194975)
+
+[深入浅出VMware的组网模式](https://blog.csdn.net/dog250/article/details/7363534)
+
+[How does PING work](https://www.paessler.com/it-explained/ping)
+
+
+
 
 
 
@@ -30,6 +122,7 @@
 Git checkout master
 Git pull
 Git checkout -b topic-mrxxx
+pipenv run flake8 web/utils.py
 ...
 git push -u origin topic-mr386
 
@@ -53,6 +146,25 @@ git push -u origin master # 把本地的master分支推送到远程仓库origin�
 
 
 ## python
+
+
+
++ 把dataframe的两列组成一个dict `ht_video = pd.Series(df_video['source'].values,index=df_video['uuid']).to_dict()`
++ 格式化一个浮点list `print ["{0:0.2f}".format(i) for i in a]`
++ `sys.getsizeof(obj)` calls `obj.__sizeof__()` to get object size
+
+### [Pickle](https://wiki.python.org/moin/UsingPickle)
+
+```
+import pickle
+
+favorite_color = { "lion": "yellow", "kitty": "red" }
+pickle.dump( favorite_color, open( "save.p", "wb" ) )
+
+favorite_color = pickle.load( open( "save.p", "rb" ) )
+# favorite_color is now { "lion": "yellow", "kitty": "red" }
+```
+
 
 ### [Module vs Package](https://realpython.com/python-modules-packages/)
 
@@ -307,8 +419,16 @@ sorted(tup, key = lambda x: x[1])
 ## linux Mac 命令
 + `grep -r VideoPartial .` # 循环寻找一个pattern
 + `find . -name "foo*"` # find files with names recursively
+    + `find . -type f -size +4096c` to find files bigger than 4096 bytes. 
 + `echo $PATH`
 + `which echo` # show the absolute path of this command
+
+
+
+[How to turn off and turn on Spotlight on macOS Mojave and Catalina?](https://www.fireebok.com/resource/how-to-turn-off-and-turn-on-spotlight-on-macos-mojave.html)
+
+[尚硅谷笔记](https://github.com/IThawk/learning/tree/master/%E7%AC%94%E8%AE%B0)
+
 
 ### [grep 命令](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/)
 
